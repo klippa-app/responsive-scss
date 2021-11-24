@@ -3,7 +3,7 @@
 This is the SCSS library used for [@klippa/ngx-grid](https://github.com/klippa-app/ngx-grid) and for other
 responsive design in Klippa projects.
 
-## How to use:
+## How to use
 
 First install it:
 
@@ -34,14 +34,14 @@ $large-color: blue;
   }
 }
 
-@mixin set-content($breakpoint) {
-    content: "Screen is currently: #{$breakpoint}!";
+@mixin set-content($breakpoint, $min-width) {
+    content: "Screen is currently #{$breakpoint} and has a minimum width of #{$min-width}";
 }
 
 h1 {
   // create @media blocks for all breakpoints and @include set-content in each one.
-  @include responsive-scss.allBreakpoints using ($breakpoint) {
-    @include set-content($breakpoint);
+  @include responsive-scss.allBreakpoints using ($breakpoint, $min-width) {
+    @include set-content($breakpoint, $min-width);
   }
 }
 ```

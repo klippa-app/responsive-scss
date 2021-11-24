@@ -16,7 +16,7 @@ $breakpoints: (
 @mixin allBreakpoints() {
   @each $breakpoint, $min-width in $breakpoints {
     @include responsive($breakpoint) {
-      @content($breakpoint);
+      @content($breakpoint, $min-width);
     }
   }
 }
