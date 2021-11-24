@@ -1,0 +1,22 @@
+$breakpoints: (
+        xs: 0px,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1440px,
+) !default;
+
+@mixin responsive($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin allBreakpoints() {
+  @each $breakpoint, $min-width in $breakpoints {
+    @include responsive($breakpoint) {
+      @content($breakpoint);
+    }
+  }
+}
